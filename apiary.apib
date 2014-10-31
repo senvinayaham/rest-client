@@ -1,0 +1,46 @@
+FORMAT: 1A
+
+# SenthilService
+Notes API is a *short texts saving* service similar to its physical paper presence on your table.
+
+# Group TestService
+Notes related resources of the **Notes API**
+
+## Notes Collection [/senservice]
+### List all Notes [GET]
++ Response 200 (application/json)
+
+        [{
+          "id": 1, "title": "Jogging in park"
+        }, {
+          "id": 2, "title": "Pick-up posters from post-office"
+        }]
+
+### Create a Note [POST]
++ Request (text/xml;charset=UTF-8)
+
+        <test>Hi this is test</test>
+
++ Response 201 (text/xml;charset=UTF-8)
+
+        <res>Welcome to my service</res>
+
+## Note [/notes/{id}]
+A single Note object with all its details
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Note to perform action with. Has example value.
+
+### Retrieve a Note [GET]
++ Response 200 (application/json)
+
+    + Header
+
+            X-My-Header: The Value
+
+    + Body
+
+            { "id": 2, "title": "Pick-up posters from post-office" }
+
+### Remove a Note [DELETE]
++ Response 204
